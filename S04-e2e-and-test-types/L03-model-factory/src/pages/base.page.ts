@@ -9,6 +9,7 @@ export class BasePage {
   }
 
   async title(): Promise<string> {
+    await this.page.waitForLoadState();
     return await this.page.title();
   }
 
