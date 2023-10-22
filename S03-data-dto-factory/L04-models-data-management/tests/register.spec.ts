@@ -41,7 +41,7 @@ test.describe('Verify register', () => {
     // Assert
     await loginPage.login(
       registerUserData.userEmail,
-      registerUserData.userPassword
+      registerUserData.userPassword,
     );
 
     const welcomePage = new WelcomePage(page);

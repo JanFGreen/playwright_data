@@ -20,7 +20,7 @@ export class RegisterPage extends BasePage {
     firstName: string,
     lastName: string,
     email: string,
-    password: string
+    password: string,
   ): Promise<void> {
     await this.userFirstNameInput.fill(firstName);
     await this.userLastNameInput.fill(lastName);

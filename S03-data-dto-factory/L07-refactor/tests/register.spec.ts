@@ -81,10 +81,10 @@ test.describe('Verify register', () => {
     // Act
     await registerPage.goto();
     await registerPage.userFirstNameInput.fill(
-      faker.person.firstName().replace(/[^A-Za-z]/g, '')
+      faker.person.firstName().replace(/[^A-Za-z]/g, ''),
     );
     await registerPage.userLastNameInput.fill(
-      faker.person.lastName().replace(/[^A-Za-z]/g, '')
+      faker.person.lastName().replace(/[^A-Za-z]/g, ''),
     );
     await registerPage.userPasswordInput.fill(faker.internet.password());
     await registerPage.registerButton.click();

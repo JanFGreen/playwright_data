@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker/locale/en';
 
 export function prepareRandomArticle(
   titleLength?: number,
-  bodyParagraphs = 5
+  bodyParagraphs = 5,
 ): AddArticleModel {
   let title: string;
 

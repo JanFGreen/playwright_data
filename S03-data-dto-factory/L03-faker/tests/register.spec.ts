@@ -25,7 +25,7 @@ test.describe('Verify register', () => {
       userFirstName,
       userLastName,
       userEmail,
-      userPassword
+      userPassword,
     );
 
     const expectedAlertPopupText = 'User created';

@@ -47,7 +47,7 @@ test.describe('Create, verify and delete comment', () => {
     // Act
     await articlePage.addCommentButton.click();
     await expect(addCommentView.addNewHeader).toHaveText(
-      expectedAddCommentHeader
+      expectedAddCommentHeader,
     );
 
     await addCommentView.bodyInput.fill(newCommentData.body);
@@ -55,7 +55,7 @@ test.describe('Create, verify and delete comment', () => {
 
     // Assert
     await expect(articlePage.alertPopup).toHaveText(
-      expectedCommentCreatedPopup
+      expectedCommentCreatedPopup,
     );
 
     // Verify comment

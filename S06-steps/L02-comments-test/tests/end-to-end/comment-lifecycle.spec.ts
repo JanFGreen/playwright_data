@@ -41,14 +41,14 @@ test.describe('Create, verify and delete comment', () => {
     // Act
     await articlePage.addCommentButton.click();
     await expect(addCommentView.addNewHeader).toHaveText(
-      expectedAddCommentHeader
+      expectedAddCommentHeader,
     );
     await addCommentView.bodyInput.fill('Hello!');
     await addCommentView.saveButton.click();
 
     // Assert
     await expect(articlePage.alertPopup).toHaveText(
-      expectedCommentCreatedPopup
+      expectedCommentCreatedPopup,
     );
   });
 });

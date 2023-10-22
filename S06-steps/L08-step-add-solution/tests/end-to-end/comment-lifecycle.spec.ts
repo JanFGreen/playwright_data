@@ -94,7 +94,7 @@ test.describe('Create, verify and delete comment', () => {
       // Act
       await commentPage.returnLink.click();
       const updatedArticleComment = articlePage.getArticleComment(
-        editCommentData.body
+        editCommentData.body,
       );
 
       // Assert
@@ -111,7 +111,7 @@ test.describe('Create, verify and delete comment', () => {
 
       // Assert
       const articleComment = articlePage.getArticleComment(
-        secondCommentData.body
+        secondCommentData.body,
       );
       await expect(articleComment.body).toHaveText(secondCommentData.body);
       await articleComment.link.click();

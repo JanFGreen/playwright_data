@@ -51,14 +51,14 @@ test.describe('Create, verify and delete comment', () => {
     // Act
     await articlePage.addCommentButton.click();
     await expect(addCommentView.addNewHeader).toHaveText(
-      expectedAddCommentHeader
+      expectedAddCommentHeader,
     );
 
     await addCommentView.createComment(newCommentData);
 
     // Assert
     await expect(articlePage.alertPopup).toHaveText(
-      expectedCommentCreatedPopup
+      expectedCommentCreatedPopup,
     );
 
     // Verify comment
@@ -79,7 +79,7 @@ test.describe('Create, verify and delete comment', () => {
     await expect(commentPage.alertPopup).toHaveText(expectedCommentUpdatePopup);
     await commentPage.returnLink.click();
     const updatedArticleComment = articlePage.getArticleComment(
-      editCommentData.body
+      editCommentData.body,
     );
     await expect(updatedArticleComment.body).toHaveText(editCommentData.body);
   });

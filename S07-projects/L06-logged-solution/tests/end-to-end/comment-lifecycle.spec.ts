@@ -88,7 +88,7 @@ test.describe('Create, verify and delete comment', () => {
       // Act
       await commentPage.returnLink.click();
       const updatedArticleComment = articlePage.getArticleComment(
-        editCommentData.body
+        editCommentData.body,
       );
 
       // Assert
