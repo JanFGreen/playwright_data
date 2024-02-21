@@ -29,6 +29,10 @@ myTest('ex3.3 test execute fixture', async ({ myLog, myStatic }) => {
   console.log('🧪 t3 test my fixture executed');
   console.log(myStatic);
   console.log(await myLog);
+  // pay attention to await in above line, is not needed due to MyObject interface
+  // without interface await will not call the warning:
+  // " 'await' has no effect on the type of this expression. ts(80007)"
+  // see ex2-own.fixtures.spec.ts for comparison
 });
 
 myTest('ex3.4 test with built-in', async ({ page }) => {

@@ -26,7 +26,7 @@ export const articleTest = pageObjectTest.extend<ArticleFixtures>({
       articleData?: AddArticleModel,
     ): Promise<ArticleCreationContext> => {
       const finalArticleData = articleData ?? prepareRandomArticle();
-      const articlePage = await addArticleView.createArticle(articleData);
+      const articlePage = await addArticleView.createArticle(finalArticleData);
       return { articlePage, articleData: finalArticleData };
     };
     await use(create);
