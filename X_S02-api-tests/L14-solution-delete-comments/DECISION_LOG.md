@@ -109,9 +109,9 @@ We need static code analysis tools for:
 
 ## Use of faker in automated tests <a id="use-of-faker-in-automated-tests"></a>
 
-**ID**: 004    
-**Status**: Decided     
-**Date**: 2023/07/26     
+**ID**: 004
+**Status**: Decided
+**Date**: 2023/07/26
 **Context**: In our automated tests, we often encounter the need to populate test data with realistic but randomized values, such as names, addresses, dates, and other user-specific information.
 
 **Proposed solution**: Integrate the 'faker' library into our automated tests to generate realistic and randomized test data.
@@ -128,7 +128,8 @@ We need static code analysis tools for:
 - Slower tests - Adding faker slows down test by additional logic and abstraction.
 - Random Data Challenges - Random data produced by faker, in some cases can be inappropriate for our needs, that force additional effort to customize faker outputs.
 
-**Decision**: Decided.  
+**Decision**: Decided.
+
 **Creator**: Przemek B
 
 ## Introduction of New Methods Returning Page Objects in Page Objects Code <a id="introduction-of-new-methods-returning-page-objects"></a>

@@ -18,7 +18,7 @@ test.describe('Verify comments API endpoint @GAD-R08-02 @smoke', () => {
       request,
     }) => {
       // Arrange
-      const expectedMinArticleCount = 1;
+      const expectedMinArticlesCount = 1;
 
       // Act
       const response = await request.get(apiLinks.commentsUrl);
@@ -26,7 +26,7 @@ test.describe('Verify comments API endpoint @GAD-R08-02 @smoke', () => {
 
       // Assert
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinCommentsCount,
       );
     });
 
@@ -70,10 +70,10 @@ test.describe('Verify comments API endpoint @GAD-R08-02 @smoke', () => {
 
     const responseJson = await response.json();
     await test.step('GET comments should return at least one comment', async () => {
-      const expectedMinArticleCount = 1;
+      const expectedMinArticlesCount = 1;
 
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 

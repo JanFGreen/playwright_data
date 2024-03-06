@@ -1,99 +1,97 @@
 import { expect, test } from '@_src/fixtures/merge.fixture';
+import { apiLinks } from '@_src/utils/api.util';
 
-test.describe('Verify comments API endpoint @GAD-R08-02 @api', () => {
+test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
   test.describe('verify each condition in separate test', () => {
-    test('GET comments returns status code 200', async ({ request }) => {
+    test('GET articles returns status code 200', async ({ request }) => {
       // Arrange
       const expectedStatusCode = 200;
-      const commentsUrl = '/api/comments';
 
       // Act
-      const response = await request.get(commentsUrl);
+      const response = await request.get(apiLinks.articlesUrl);
 
       // Assert
       expect(response.status()).toBe(expectedStatusCode);
     });
 
-    test('GET comments should return at least one comment @predefined_data', async ({
+    test('GET articles should return at least one article @predefined_data', async ({
       request,
     }) => {
       // Arrange
-      const expectedMinArticleCount = 1;
-      const commentsUrl = '/api/comments';
+      const expectedMinArticlesCount = 1;
 
       // Act
-      const response = await request.get(commentsUrl);
+      const response = await request.get(apiLinks.articlesUrl);
       const responseJson = await response.json();
 
       // Assert
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 
-    test('GET comments return comment object @predefined_data', async ({
+    test('GET articles return article object @predefined_data', async ({
       request,
     }) => {
       // Arrange
       const expectedRequiredFields = [
         'id',
-        'article_id',
         'user_id',
+        'title',
         'body',
         'date',
+        'image',
       ];
 
-      const commentsUrl = '/api/comments';
-
       // Act
-      const response = await request.get(commentsUrl);
+      const response = await request.get(apiLinks.articlesUrl);
       const responseJson = await response.json();
-      const comment = responseJson[0];
+      const article = responseJson[0];
 
       // Assert
       expectedRequiredFields.forEach((key) => {
         expect
-          .soft(comment, `Expected key "${key}" should be in object`)
+          .soft(article, `Expected key "${key}" should be in object`)
           .toHaveProperty(key);
       });
     });
   });
 
-  test('GET comments should return an object with required fields @predefined_data', async ({
+  test('GET articles should return an object with required fields @predefined_data', async ({
     request,
   }) => {
     // Arrange
-    const commentsUrl = '/api/comments';
-    const response = await request.get(commentsUrl);
+    const response = await request.get(apiLinks.articlesUrl);
 
-    await test.step('GET comments returns status code 200', async () => {
+    await test.step('GET articles returns status code 200', async () => {
       const expectedStatusCode = 200;
 
       expect(response.status()).toBe(expectedStatusCode);
     });
 
     const responseJson = await response.json();
-    await test.step('GET comments should return at least one comment', async () => {
-      const expectedMinArticleCount = 1;
+    await test.step('GET articles should return at least one article', async () => {
+      const expectedMinArticlesCount = 1;
 
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 
     const expectedRequiredFields = [
       'id',
-      'article_id',
       'user_id',
+      'title',
       'body',
       'date',
+      'image',
     ];
 
-    const comment = responseJson[0];
+    const article = responseJson[0];
 
     expectedRequiredFields.forEach(async (key) => {
       await test.step(`response object contains required field: "${key}"`, async () => {
-        expect.soft(comment).toHaveProperty(key);
+        expect.soft(article).toHaveProperty(key);
       });
     });
   });

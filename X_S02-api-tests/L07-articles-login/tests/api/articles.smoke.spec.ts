@@ -1,14 +1,14 @@
 import { expect, test } from '@_src/fixtures/merge.fixture';
-import { apiLinks } from '@_src/utils/api.util';
 
-test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
+test.describe('Verify articles API endpoint @GAD-R08-01 @api', () => {
   test.describe('verify each condition in separate test', () => {
     test('GET articles returns status code 200', async ({ request }) => {
       // Arrange
       const expectedStatusCode = 200;
+      const articlesUrl = '/api/articles';
 
       // Act
-      const response = await request.get(apiLinks.articlesUrl);
+      const response = await request.get(articlesUrl);
 
       // Assert
       expect(response.status()).toBe(expectedStatusCode);
@@ -18,15 +18,16 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
       request,
     }) => {
       // Arrange
-      const expectedMinArticleCount = 1;
+      const expectedMinArticlesCount = 1;
+      const articlesUrl = '/api/articles';
 
       // Act
-      const response = await request.get(apiLinks.articlesUrl);
+      const response = await request.get(articlesUrl);
       const responseJson = await response.json();
 
       // Assert
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 
@@ -43,8 +44,10 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
         'image',
       ];
 
+      const articlesUrl = '/api/articles';
+
       // Act
-      const response = await request.get(apiLinks.articlesUrl);
+      const response = await request.get(articlesUrl);
       const responseJson = await response.json();
       const article = responseJson[0];
 
@@ -61,7 +64,8 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
     request,
   }) => {
     // Arrange
-    const response = await request.get(apiLinks.articlesUrl);
+    const articlesUrl = '/api/articles';
+    const response = await request.get(articlesUrl);
 
     await test.step('GET articles returns status code 200', async () => {
       const expectedStatusCode = 200;
@@ -71,10 +75,10 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
 
     const responseJson = await response.json();
     await test.step('GET articles should return at least one article', async () => {
-      const expectedMinArticleCount = 1;
+      const expectedMinArticlesCount = 1;
 
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 

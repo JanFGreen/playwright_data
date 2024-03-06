@@ -18,7 +18,7 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @api', () => {
       request,
     }) => {
       // Arrange
-      const expectedMinArticleCount = 1;
+      const expectedMinArticlesCount = 1;
       const articlesUrl = '/api/articles';
 
       // Act
@@ -27,7 +27,7 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @api', () => {
 
       // Assert
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 
@@ -75,10 +75,10 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @api', () => {
 
     const responseJson = await response.json();
     await test.step('GET articles should return at least one article', async () => {
-      const expectedMinArticleCount = 1;
+      const expectedMinArticlesCount = 1;
 
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 

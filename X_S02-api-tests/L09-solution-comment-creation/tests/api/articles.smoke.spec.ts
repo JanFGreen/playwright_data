@@ -1,6 +1,6 @@
 import { expect, test } from '@_src/fixtures/merge.fixture';
 
-test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
+test.describe('Verify articles API endpoint @GAD-R08-01 @api', () => {
   test.describe('verify each condition in separate test', () => {
     test('GET articles returns status code 200', async ({ request }) => {
       // Arrange
@@ -18,7 +18,7 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
       request,
     }) => {
       // Arrange
-      const expectedMinArticleCount = 1;
+      const expectedMinArticlesCount = 1;
       const articlesUrl = '/api/articles';
 
       // Act
@@ -27,7 +27,7 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
 
       // Assert
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 
@@ -75,10 +75,10 @@ test.describe('Verify articles API endpoint @GAD-R08-01 @smoke', () => {
 
     const responseJson = await response.json();
     await test.step('GET articles should return at least one article', async () => {
-      const expectedMinArticleCount = 1;
+      const expectedMinArticlesCount = 1;
 
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 

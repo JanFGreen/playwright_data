@@ -1,6 +1,6 @@
 import { expect, test } from '@_src/fixtures/merge.fixture';
 
-test.describe('Verify comments API endpoint @GAD-R08-02 @api', () => {
+test.describe('Verify comments API endpoint @GAD-R08-02 @smoke', () => {
   test.describe('verify each condition in separate test', () => {
     test('GET comments returns status code 200', async ({ request }) => {
       // Arrange
@@ -18,7 +18,7 @@ test.describe('Verify comments API endpoint @GAD-R08-02 @api', () => {
       request,
     }) => {
       // Arrange
-      const expectedMinArticleCount = 1;
+      const expectedMinCommentsCount = 1;
       const commentsUrl = '/api/comments';
 
       // Act
@@ -27,7 +27,7 @@ test.describe('Verify comments API endpoint @GAD-R08-02 @api', () => {
 
       // Assert
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinCommentsCount,
       );
     });
 
@@ -74,10 +74,10 @@ test.describe('Verify comments API endpoint @GAD-R08-02 @api', () => {
 
     const responseJson = await response.json();
     await test.step('GET comments should return at least one comment', async () => {
-      const expectedMinArticleCount = 1;
+      const expectedMinArticlesCount = 1;
 
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticleCount,
+        expectedMinArticlesCount,
       );
     });
 
