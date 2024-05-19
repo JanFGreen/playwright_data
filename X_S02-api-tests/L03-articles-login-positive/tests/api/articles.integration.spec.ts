@@ -14,7 +14,7 @@ test.describe('Verify articles CRUD operations @api @GAD-R08-03', () => {
     const articleData = {
       title: randomArticleData.title,
       body: randomArticleData.body,
-      date: '2024-06-30T15:44:31Z',
+      date: '2024-05-16T15:44:31Z',
       image: '',
     };
 
