@@ -18,7 +18,7 @@ test.describe('Verify articles CRUD operations @crud @GAD-R08-03', () => {
       image: '',
     };
 
-    // Arrange
+    // Act
     const response = await request.post(articlesUrl, {
       data: articleData,
     });

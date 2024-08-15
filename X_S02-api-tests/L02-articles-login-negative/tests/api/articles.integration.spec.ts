@@ -17,7 +17,7 @@ test.describe('Verify articles CRUD operations @api', () => {
       image: '',
     };
 
-    // Arrange
+    // Act
     const response = await request.post(articlesUrl, {
       data: articleData,
     });
