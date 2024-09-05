@@ -120,7 +120,6 @@ test.describe('Mark all as completed', () => {
     await firstTodo.getByRole('checkbox').uncheck();
 
     // Reuse toggleAll locator and make sure its not checked.
-    // eslint-disable-next-line playwright/no-useless-not
     await expect(toggleAll).not.toBeVisible();
 
     await firstTodo.getByRole('checkbox').check();
@@ -220,7 +219,7 @@ test.describe('Editing', () => {
       todoItem.locator('label', {
         hasText: TODO_ITEMS[1],
       }),
-      // eslint-disable-next-line playwright/no-useless-not
+
     ).not.toBeVisible();
     await checkNumberOfTodosInLocalStorage(page, 3);
   });
