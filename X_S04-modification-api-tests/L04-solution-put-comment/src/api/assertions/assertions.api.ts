@@ -8,10 +8,10 @@ export async function expectGetResponseStatus(
   expectedStatusCode: number,
   headers?: Headers,
 ): Promise<void> {
-  const responseArticleGet = await request.get(url, { headers });
+  const responseGet = await request.get(url, { headers });
 
   expect(
-    responseArticleGet.status(),
-    `expected status code ${expectedStatusCode}, and received ${responseArticleGet.status()}`,
+    responseGet.status(),
+    `expected status code ${expectedStatusCode}, and received ${responseGet.status()}`,
   ).toBe(expectedStatusCode);
 }
