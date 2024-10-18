@@ -2,7 +2,7 @@ import { createArticleWithApi } from '@_src/api/factories/article-create.api.fac
 import { getAuthorizationHeader } from '@_src/api/factories/authorization-header.api.factory';
 import { createCommentWithApi } from '@_src/api/factories/comment-create.api.factory';
 import { prepareCommentPayload } from '@_src/api/factories/comment-payload.api.factory';
-import { Headers } from '@_src/api/models/headers.api.models';
+import { Headers } from '@_src/api/models/headers.api.model';
 import { apiUrls } from '@_src/api/utils/api.util';
 import { expect, test } from '@_src/ui/fixtures/merge.fixture';
 

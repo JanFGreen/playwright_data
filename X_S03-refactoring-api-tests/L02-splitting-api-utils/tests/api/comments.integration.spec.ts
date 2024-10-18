@@ -2,7 +2,7 @@ import { prepareArticlePayload } from '@_src/api/factories/article-payload.api.f
 import { getAuthorizationHeader } from '@_src/api/factories/authorization-header.api.factory';
 import { prepareCommentPayload } from '@_src/api/factories/comment-payload.api.factory';
 import { CommentPayload } from '@_src/api/models/comment.api.model';
-import { Headers } from '@_src/api/models/headers.api.models';
+import { Headers } from '@_src/api/models/headers.api.model';
 import { apiUrls } from '@_src/api/utils/api.util';
 import { expect, test } from '@_src/ui/fixtures/merge.fixture';
 import { APIResponse } from '@playwright/test';

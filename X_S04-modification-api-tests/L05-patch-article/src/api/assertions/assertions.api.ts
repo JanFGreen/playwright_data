@@ -1,4 +1,4 @@
-import { Headers } from '@_src/api/models/headers.api.models';
+import { Headers } from '@_src/api/models/headers.api.model';
 import { expect } from '@_src/ui/fixtures/merge.fixture';
 import { APIRequestContext } from '@playwright/test';
 

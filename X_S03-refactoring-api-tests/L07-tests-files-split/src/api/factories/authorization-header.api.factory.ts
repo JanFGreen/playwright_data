@@ -1,4 +1,4 @@
-import { Headers } from '@_src/api/models/headers.api.models';
+import { Headers } from '@_src/api/models/headers.api.model';
 import { testUser1 } from '@_src/ui/test-data/user.data';
 import { APIRequestContext } from '@playwright/test';
 

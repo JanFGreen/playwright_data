@@ -1,4 +1,4 @@
-©jaktestowac.pl Testoneo SP z o. o. 2023
+©jaktestowac.pl Testoneo SP z o. o. 2024
 ⚠️ Only for users of Program Testy Automatyczne z Playwright
 
 # All lessons in one repository
