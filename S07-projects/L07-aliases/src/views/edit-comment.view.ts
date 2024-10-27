@@ -1,11 +1,14 @@
 import { AddCommentModel } from '@_src/models/comment.model';
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class EditCommentView {
-  bodyInput = this.page.locator('#body');
-  updateButton = this.page.getByTestId('update-button');
+  bodyInput: Locator;
+  updateButton: Locator;
 
-  constructor(private page: Page) {}
+  constructor(private page: Page) {
+    this.bodyInput = this.page.locator('#body');
+    this.updateButton = this.page.getByTestId('update-button');
+  }
 
   async updateComment(commentData: AddCommentModel): Promise<void> {
     await this.bodyInput.fill(commentData.body);

@@ -1,22 +1,30 @@
 import { RegisterUserModel } from '@_src/ui/models/user.model';
 import { BasePage } from '@_src/ui/pages/base.page';
 import { LoginPage } from '@_src/ui/pages/login.page';
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class RegisterPage extends BasePage {
   url = '/register.html';
+  userFirstNameInput: Locator;
+  userLastNameInput: Locator;
+  userEmailInput: Locator;
+  userPasswordInput: Locator;
+  registerButton: Locator;
 
-  userFirstNameInput = this.page.getByTestId('firstname-input');
-  userLastNameInput = this.page.getByTestId('lastname-input');
-  userEmailInput = this.page.getByTestId('email-input');
-  userPasswordInput = this.page.getByTestId('password-input');
-  registerButton = this.page.getByTestId('register-button');
-
-  alertPopup = this.page.getByTestId('alert-popup');
-  emailErrorText = this.page.locator('#octavalidate_email');
+  alertPopup: Locator;
+  emailErrorText: Locator;
 
   constructor(page: Page) {
     super(page);
+
+    this.userFirstNameInput = this.page.getByTestId('firstname-input');
+    this.userLastNameInput = this.page.getByTestId('lastname-input');
+    this.userEmailInput = this.page.getByTestId('email-input');
+    this.userPasswordInput = this.page.getByTestId('password-input');
+    this.registerButton = this.page.getByTestId('register-button');
+
+    this.alertPopup = this.page.getByTestId('alert-popup');
+    this.emailErrorText = this.page.locator('#octavalidate_email');
   }
 
   async register(registerUserData: RegisterUserModel): Promise<LoginPage> {

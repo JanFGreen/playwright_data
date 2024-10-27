@@ -1,15 +1,24 @@
 import { AddArticleModel } from '../models/article.model';
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class AddArticleView {
-  header = this.page.getByRole('heading', { name: 'Add New Entry' });
-  titleInput = this.page.getByTestId('title-input');
-  bodyInput = this.page.getByTestId('body-text');
-  saveButton = this.page.getByTestId('save');
+  header: Locator;
+  titleInput: Locator;
+  bodyInput: Locator;
+  saveButton: Locator;
 
-  alertPopup = this.page.getByTestId('alert-popup');
+  alertPopup: Locator;
 
-  constructor(private page: Page) {}
+  constructor(private page: Page) {
+    this.header = this.page.getByRole('heading', {
+      name: 'Add New Entry',
+    });
+    this.titleInput = this.page.getByTestId('title-input');
+    this.bodyInput = this.page.getByTestId('body-text');
+    this.saveButton = this.page.getByTestId('save');
+
+    this.alertPopup = this.page.getByTestId('alert-popup');
+  }
 
   async createArticle(addArticle: AddArticleModel): Promise<void> {
     await this.titleInput.fill(addArticle.title);

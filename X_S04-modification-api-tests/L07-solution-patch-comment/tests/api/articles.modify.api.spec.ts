@@ -176,10 +176,10 @@ test.describe('Verify articles modification operations @crud @article @api', () 
 
       const articleJson = await responseArticle.json();
       const articleId = articleJson.id;
-      const modifiedArticleData = {};
+
+      const modifiedArticleData: { [key: string]: string } = {};
       modifiedArticleData[nonExistingField] = 'Hello';
 
-      // Act
       const responseArticlePut = await request.patch(
         `${apiUrls.articlesUrl}/${articleId}`,
         {

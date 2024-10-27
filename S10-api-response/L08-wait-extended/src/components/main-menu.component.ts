@@ -1,14 +1,18 @@
 import { ArticlesPage } from '@_src/pages/articles.page';
 import { CommentsPage } from '@_src/pages/comments.page';
 import { HomePage } from '@_src/pages/home.page';
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class MainMenuComponent {
-  commentsButton = this.page.getByTestId('open-comments');
-  articlesButton = this.page.getByTestId('open-articles');
-  homePageLink = this.page.getByRole('link', { name: '🦎 GAD' });
+  commentsButton: Locator;
+  articlesButton: Locator;
+  homePageLink: Locator;
 
-  constructor(private page: Page) {}
+  constructor(private page: Page) {
+    this.commentsButton = this.page.getByTestId('open-comments');
+    this.articlesButton = this.page.getByTestId('open-articles');
+    this.homePageLink = this.page.getByRole('link', { name: '🦎 GAD' });
+  }
 
   async clickCommentsButton(): Promise<CommentsPage> {
     await this.commentsButton.click();

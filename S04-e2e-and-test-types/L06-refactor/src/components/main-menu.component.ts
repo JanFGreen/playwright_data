@@ -1,9 +1,13 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class MainMenuComponent {
-  commentsButton = this.page.getByTestId('open-comments');
-  articlesButton = this.page.getByTestId('open-articles');
-  homePage = this.page.getByRole('link', { name: '🦎 GAD' });
+  commentsButton: Locator;
+  articlesButton: Locator;
+  homePage: Locator;
 
-  constructor(private page: Page) {}
+  constructor(private page: Page) {
+    this.commentsButton = this.page.getByTestId('open-comments');
+    this.articlesButton = this.page.getByTestId('open-articles');
+    this.homePage = this.page.getByRole('link', { name: '🦎 GAD' });
+  }
 }

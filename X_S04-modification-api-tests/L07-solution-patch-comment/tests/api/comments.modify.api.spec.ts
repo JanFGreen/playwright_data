@@ -194,7 +194,7 @@ test.describe('Verify comments modify operations @crud @comment @api @modify', (
       const expectedErrorMessage = `One of field is invalid (empty, invalid or too long) or there are some additional fields: Field validation: "${nonExistingField}" not in [id,user_id,article_id,body,date]`;
 
       const comment = await responseComment.json();
-      const modifiedCommentData = {};
+      const modifiedCommentData: { [key: string]: string } = {};
       modifiedCommentData[nonExistingField] = `${new Date().toISOString()}`;
 
       // Act

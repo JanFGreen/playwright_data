@@ -1,8 +1,11 @@
 import { Page } from '@playwright/test';
 
 export class BasePage {
-  url = '';
-  constructor(protected page: Page) {}
+  url: string;
+
+  constructor(protected page: Page) {
+    this.url = '';
+  }
 
   async goto(): Promise<void> {
     await this.page.goto(this.url);
@@ -10,7 +13,7 @@ export class BasePage {
 
   async title(): Promise<string> {
     await this.page.waitForLoadState();
-    return await this.page.title();
+    return this.page.title();
   }
 
   async waitForPageToLoadUrl(): Promise<void> {

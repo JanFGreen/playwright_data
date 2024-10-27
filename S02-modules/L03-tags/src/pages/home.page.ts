@@ -2,6 +2,7 @@ import { Page } from '@playwright/test';
 
 export class HomePage {
   url = '/';
+
   constructor(private page: Page) {}
 
   async goto(): Promise<void> {
@@ -10,6 +11,6 @@ export class HomePage {
 
   async title(): Promise<string> {
     await this.page.waitForLoadState();
-    return await this.page.title();
+    return this.page.title();
   }
 }

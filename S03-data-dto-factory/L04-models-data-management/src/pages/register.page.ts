@@ -1,20 +1,27 @@
 import { RegisterUser } from '../models/user.model';
 import { BasePage } from './base.page';
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class RegisterPage extends BasePage {
   url = '/register.html';
+  userFirstNameInput: Locator;
+  userLastNameInput: Locator;
+  userEmailInput: Locator;
+  userPasswordInput: Locator;
+  registerButton: Locator;
 
-  userFirstNameInput = this.page.getByTestId('firstname-input');
-  userLastNameInput = this.page.getByTestId('lastname-input');
-  userEmailInput = this.page.getByTestId('email-input');
-  userPasswordInput = this.page.getByTestId('password-input');
-  registerButton = this.page.getByTestId('register-button');
-
-  alertPopup = this.page.getByTestId('alert-popup');
+  alertPopup: Locator;
 
   constructor(page: Page) {
     super(page);
+
+    this.userFirstNameInput = this.page.getByTestId('firstname-input');
+    this.userLastNameInput = this.page.getByTestId('lastname-input');
+    this.userEmailInput = this.page.getByTestId('email-input');
+    this.userPasswordInput = this.page.getByTestId('password-input');
+    this.registerButton = this.page.getByTestId('register-button');
+
+    this.alertPopup = this.page.getByTestId('alert-popup');
   }
 
   async register(registerUserData: RegisterUser): Promise<void> {

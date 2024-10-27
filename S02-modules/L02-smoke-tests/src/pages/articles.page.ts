@@ -2,6 +2,7 @@ import { Page } from '@playwright/test';
 
 export class ArticlesPage {
   url = '/articles.html';
+
   constructor(private page: Page) {}
 
   async goto(): Promise<void> {
