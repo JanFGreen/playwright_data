@@ -9,7 +9,7 @@ import {
 import { APIResponse } from '@playwright/test';
 
 test.describe('Verify articles CRUD operations @crud', () => {
-  test('should not create an article without a logged-in user  @GAD-R08-03', async ({
+  test('should not create an article without a logged-in user  @GAD-R09-01', async ({
     request,
   }) => {
     // Arrange
@@ -42,7 +42,7 @@ test.describe('Verify articles CRUD operations @crud', () => {
       });
     });
 
-    test('should create an article with logged-in user @GAD-R08-03', async () => {
+    test('should create an article with logged-in user @GAD-R09-01', async () => {
       // Arrange
       const expectedStatusCode = 201;
 

@@ -18,7 +18,7 @@ test.describe('Verify comments create operations @crud @api @comment @create', (
     articleId = article.id;
   });
 
-  test('should not create an comment without a logged-in user @GAD-R08-04', async ({
+  test('should not create an comment without a logged-in user @GAD-R09-02', async ({
     request,
   }) => {
     // Arrange
@@ -34,7 +34,7 @@ test.describe('Verify comments create operations @crud @api @comment @create', (
     expect(response.status()).toBe(expectedStatusCode);
   });
 
-  test('should create a comment with logged-in user @GAD-R08-04', async ({
+  test('should create a comment with logged-in user @GAD-R09-02', async ({
     request,
   }) => {
     // Arrange

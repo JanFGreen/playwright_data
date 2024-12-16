@@ -39,7 +39,7 @@ test.describe('Verify comments CRUD operations @crud', () => {
     }).toPass({ timeout: 2_000 });
   });
 
-  test('should not create an comment without a logged-in user @GAD-R08-04', async ({
+  test('should not create an comment without a logged-in user @GAD-R09-02', async ({
     request,
   }) => {
     // Arrange
@@ -81,7 +81,7 @@ test.describe('Verify comments CRUD operations @crud', () => {
       }).toPass({ timeout: 2_000 });
     });
 
-    test('should create a comment with logged-in user @GAD-R08-04', async () => {
+    test('should create a comment with logged-in user @GAD-R09-02', async () => {
       // Arrange
       const expectedStatusCode = 201;
 
@@ -96,7 +96,7 @@ test.describe('Verify comments CRUD operations @crud', () => {
       expect.soft(comment.body).toEqual(commentData.body);
     });
 
-    test('should delete a comment with logged-in user @GAD-R08-06', async ({
+    test('should delete a comment with logged-in user @GAD-R09-04', async ({
       request,
     }) => {
       // Arrange
@@ -134,7 +134,7 @@ test.describe('Verify comments CRUD operations @crud', () => {
       ).toBe(expectedStatusDeletedComment);
     });
 
-    test('should not delete a comment with a non logged-in user @GAD-R08-06', async ({
+    test('should not delete a comment with a non logged-in user @GAD-R09-04', async ({
       request,
     }) => {
       // Arrange

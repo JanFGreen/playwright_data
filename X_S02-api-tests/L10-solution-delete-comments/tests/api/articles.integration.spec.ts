@@ -9,7 +9,7 @@ import {
 import { APIResponse } from '@playwright/test';
 
 test.describe('Verify articles CRUD operations @crud', () => {
-  test('should not create an article without a logged-in user  @GAD-R08-03', async ({
+  test('should not create an article without a logged-in user  @GAD-R09-01', async ({
     request,
   }) => {
     // Arrange
@@ -42,7 +42,7 @@ test.describe('Verify articles CRUD operations @crud', () => {
       });
     });
 
-    test('should create an article with logged-in user @GAD-R08-03', async () => {
+    test('should create an article with logged-in user @GAD-R09-01', async () => {
       // Arrange
       const expectedStatusCode = 201;
 
@@ -58,7 +58,7 @@ test.describe('Verify articles CRUD operations @crud', () => {
       expect.soft(articleJson.body).toEqual(articleData.body);
     });
 
-    test('should delete an article with logged-in user @GAD-R08-05', async ({
+    test('should delete an article with logged-in user @GAD-R09-03', async ({
       request,
     }) => {
       await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -94,7 +94,7 @@ test.describe('Verify articles CRUD operations @crud', () => {
       ).toBe(expectedDeletedArticleStatusCode);
     });
 
-    test('should not delete an article with a non logged-in user @GAD-R08-05', async ({
+    test('should not delete an article with a non logged-in user @GAD-R09-03', async ({
       request,
     }) => {
       // Arrange

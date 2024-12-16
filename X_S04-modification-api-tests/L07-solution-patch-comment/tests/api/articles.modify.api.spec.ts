@@ -54,7 +54,7 @@ test.describe('Verify articles modification operations @crud @article @api', () 
       expect.soft(modifiedArticleJson.body).not.toEqual(articleData.body);
     });
 
-    test('should not modify an article with a non logged-in user @GAD-R09-03', async ({
+    test('should not modify an article with a non logged-in user @GAD-R10-01', async ({
       request,
     }) => {
       // Arrange
@@ -128,7 +128,7 @@ test.describe('Verify articles modification operations @crud @article @api', () 
       expect.soft(modifiedArticleJson.body).toEqual(articleData.body);
     });
 
-    test('should not partially modify an article with a non logged-in user @GAD-R09-03', async ({
+    test('should not partially modify an article with a non logged-in user @GAD-R10-03', async ({
       request,
     }) => {
       // Arrange
@@ -166,7 +166,7 @@ test.describe('Verify articles modification operations @crud @article @api', () 
       expect.soft(nonModifiedArticleJson.body).toEqual(articleData.body);
     });
 
-    test('should not partially modify an article with improper field logged-in user @GAD-R09-03', async ({
+    test('should not partially modify an article with improper field logged-in user @GAD-R10-03', async ({
       request,
     }) => {
       // Arrange

@@ -54,7 +54,7 @@ test.describe('Verify articles modification operations @crud @article @api', () 
     expect.soft(modifiedArticleJson.body).not.toEqual(articleData.body);
   });
 
-  test('should not modify an article with a non logged-in user @GAD-R09-03', async ({
+  test('should not modify an article with a non logged-in user @GAD-R10-01', async ({
     request,
   }) => {
     // Arrange

@@ -8,7 +8,7 @@ import { apiUrls } from '@_src/api/utils/api.util';
 import { expect, test } from '@_src/ui/fixtures/merge.fixture';
 import { APIResponse } from '@playwright/test';
 
-test.describe('Verify comments modify operations @crud @comment @api @delete', () => {
+test.describe('Verify comments modify operations @crud @comment @api @modify', () => {
   let articleId: number;
   let headers: Headers;
   let responseComment: APIResponse;
@@ -67,7 +67,7 @@ test.describe('Verify comments modify operations @crud @comment @api @delete', (
     expect.soft(modifiedCommentGetJson.body).not.toEqual(commentData.body);
   });
 
-  test('should not modify a comment with a non logged-in user @GAD-R09-04', async ({
+  test('should not modify a comment with a non logged-in user @GAD-R10-02', async ({
     request,
   }) => {
     // Arrange

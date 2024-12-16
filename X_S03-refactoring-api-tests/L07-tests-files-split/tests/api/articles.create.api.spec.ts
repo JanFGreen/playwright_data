@@ -6,7 +6,7 @@ import { apiUrls } from '@_src/api/utils/api.util';
 import { expect, test } from '@_src/ui/fixtures/merge.fixture';
 
 test.describe('Verify articles create operations @crud @create @api @article', () => {
-  test('should not create an article without a logged-in user  @GAD-R08-03', async ({
+  test('should not create an article without a logged-in user  @GAD-R09-01', async ({
     request,
   }) => {
     // Arrange
@@ -29,7 +29,7 @@ test.describe('Verify articles create operations @crud @create @api @article', (
       headers = await getAuthorizationHeader(request);
     });
 
-    test('should create an article with logged-in user @GAD-R08-03', async ({
+    test('should create an article with logged-in user @GAD-R09-01', async ({
       request,
     }) => {
       // Arrange

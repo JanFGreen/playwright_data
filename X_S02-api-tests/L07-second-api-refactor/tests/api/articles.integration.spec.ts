@@ -5,7 +5,7 @@ import {
   prepareArticlePayload,
 } from '@_src/utils/api.util';
 
-test.describe('Verify articles CRUD operations @crud @GAD-R08-03', () => {
+test.describe('Verify articles CRUD operations @crud @GAD-R09-01', () => {
   test('should not create an article without a logged-in user', async ({
     request,
   }) => {

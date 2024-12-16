@@ -6,7 +6,7 @@ import {
   prepareCommentPayload,
 } from '@_src/utils/api.util';
 
-test.describe('Verify comments CRUD operations @crud @GAD-R08-04', () => {
+test.describe('Verify comments CRUD operations @crud @GAD-R09-02', () => {
   let articleId: number;
   let headers: { [key: string]: string };
 

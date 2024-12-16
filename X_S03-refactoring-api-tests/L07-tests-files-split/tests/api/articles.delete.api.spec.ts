@@ -22,7 +22,7 @@ test.describe('Verify articles DELETE operations @crud @article @api', () => {
     responseArticle = await createArticleWithApi(request, headers, articleData);
   });
 
-  test('should delete an article with logged-in user @GAD-R08-05', async ({
+  test('should delete an article with logged-in user @GAD-R09-03', async ({
     request,
   }) => {
     // Arrange
@@ -54,7 +54,7 @@ test.describe('Verify articles DELETE operations @crud @article @api', () => {
     );
   });
 
-  test('should not delete an article with a non logged-in user @GAD-R08-05', async ({
+  test('should not delete an article with a non logged-in user @GAD-R09-03', async ({
     request,
   }) => {
     // Arrange
