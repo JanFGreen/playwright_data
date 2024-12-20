@@ -7,10 +7,10 @@ export default [
   { files: ['**/*.ts'] },
   { languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     rules: {
       'no-console': 'error',
     },
   },
-  ...tseslint.configs.recommended,
 ];
