@@ -1,13 +1,16 @@
 // Example of extending built-in fixtures
-import { test } from '@playwright/test';
+import { test, Page } from '@playwright/test';
 
-const myTest = test.extend({
+// in ES2020 you can use this syntax
+// const myTest = test.extend({
+
+const myTest = test.extend<{ myLog: string }, Page>({
   myLog: async ({}, use) => {
     console.log('🌱 f1.1 Fixture before test');
     await use('🌳 f1.2 Hello from fixture');
     console.log('🍂 f1.3 Fixture after test');
   },
-  // consider changing page fixture name if needed
+  // consider changing page fixture name (and import in tests!)
   page: async ({ page }, use) => {
     console.log('🌱 f2.1 page fixture overridden test');
     // do the stuff you want to do with page

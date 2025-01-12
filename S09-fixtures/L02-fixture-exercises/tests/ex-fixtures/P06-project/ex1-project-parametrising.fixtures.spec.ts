@@ -6,7 +6,9 @@ import { test } from '@playwright/test';
 const myTest = test.extend({
   name: async ({}, use, testInfo) => {
     console.log('🌱 f1 name fixture initialized');
-    const projectCustomName = testInfo.project.use['customName'] ?? 'not-set';
+
+    const projectUse = testInfo.project.use as { customName?: string };
+    const projectCustomName = projectUse.customName ?? 'not-set';
     await use(projectCustomName);
   },
 });

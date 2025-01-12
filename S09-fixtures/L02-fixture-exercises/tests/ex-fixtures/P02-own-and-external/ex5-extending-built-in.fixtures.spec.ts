@@ -1,7 +1,10 @@
 // Example of extending built-in fixtures
-import { test } from '@playwright/test';
+import { test, Page } from '@playwright/test';
 
-const myTest = test.extend({
+// in ES2020 you can use this syntax
+// const myTest = test.extend({
+
+const myTest = test.extend<Page>({
   page: async ({ page }, use) => {
     console.log('🌱 f1.1 Page fixture overridden before');
     await page.goto('');
