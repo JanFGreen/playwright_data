@@ -106,7 +106,7 @@ test.describe('Verify articles modification operations @crud @article @api', () 
       };
 
       // Act
-      const responseArticlePut = await request.patch(
+      const responseArticlePatch = await request.patch(
         `${apiUrls.articlesUrl}/${articleId}`,
         {
           headers,
@@ -115,13 +115,13 @@ test.describe('Verify articles modification operations @crud @article @api', () 
       );
 
       // Assert
-      const actualResponseStatus = responseArticlePut.status();
+      const actualResponseStatus = responseArticlePatch.status();
       expect(
         actualResponseStatus,
         `expected status code ${expectedStatusCode}, and received ${actualResponseStatus}`,
       ).toBe(expectedStatusCode);
 
-      const modifiedArticleJson = await responseArticlePut.json();
+      const modifiedArticleJson = await responseArticlePatch.json();
 
       expect.soft(modifiedArticleJson.title).toEqual(modifiedArticleData.title);
       expect.soft(modifiedArticleJson.title).not.toEqual(articleData.title);
@@ -140,7 +140,7 @@ test.describe('Verify articles modification operations @crud @article @api', () 
       };
 
       // Act
-      const responseArticlePut = await request.patch(
+      const responseArticlePatch = await request.patch(
         `${apiUrls.articlesUrl}/${articleId}`,
         {
           data: modifiedArticleData,
@@ -148,7 +148,7 @@ test.describe('Verify articles modification operations @crud @article @api', () 
       );
 
       // Assert
-      const actualResponseStatus = responseArticlePut.status();
+      const actualResponseStatus = responseArticlePatch.status();
       expect(
         actualResponseStatus,
         `expected status code ${expectedStatusCode}, and received ${actualResponseStatus}`,
@@ -180,7 +180,7 @@ test.describe('Verify articles modification operations @crud @article @api', () 
       const modifiedArticleData: { [key: string]: string } = {};
       modifiedArticleData[nonExistingField] = 'Hello';
 
-      const responseArticlePut = await request.patch(
+      const responseArticlePatch = await request.patch(
         `${apiUrls.articlesUrl}/${articleId}`,
         {
           headers,
@@ -189,13 +189,13 @@ test.describe('Verify articles modification operations @crud @article @api', () 
       );
 
       // Assert
-      const actualResponseStatus = responseArticlePut.status();
+      const actualResponseStatus = responseArticlePatch.status();
       expect(
         actualResponseStatus,
         `expected status code ${expectedStatusCode}, and received ${actualResponseStatus}`,
       ).toBe(expectedStatusCode);
 
-      const responseArticlePutJson = await responseArticlePut.json();
+      const responseArticlePutJson = await responseArticlePatch.json();
       expect
         .soft(responseArticlePutJson.error.message)
         .toEqual(expectedErrorMessage);
