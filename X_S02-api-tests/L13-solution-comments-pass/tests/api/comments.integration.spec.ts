@@ -46,7 +46,7 @@ test.describe('Verify comments CRUD operations @crud', () => {
     const expectedStatusCode = 401;
     const commentData = prepareCommentPayload(articleId);
 
-    // Arrange
+    // Act
     const response = await request.post(apiLinks.commentsUrl, {
       data: commentData,
     });

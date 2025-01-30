@@ -57,7 +57,7 @@ test.describe('Verify comments CRUD operations @api @GAD-R09-02', () => {
       date: '2024-01-30T15:44:31Z',
     };
 
-    // Arrange
+    // Act
     const response = await request.post(commentsUrl, {
       data: commentData,
     });
@@ -80,7 +80,6 @@ test.describe('Verify comments CRUD operations @api @GAD-R09-02', () => {
       date: '2024-01-30T15:44:31Z',
     };
 
-    // Arrange
     const response = await request.post(commentsUrl, {
       headers,
       data: commentData,

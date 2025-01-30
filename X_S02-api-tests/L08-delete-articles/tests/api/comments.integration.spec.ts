@@ -30,7 +30,7 @@ test.describe('Verify comments CRUD operations @crud @GAD-R09-02', () => {
     const expectedStatusCode = 401;
     const commentData = prepareCommentPayload(articleId);
 
-    // Arrange
+    // Act
     const response = await request.post(apiLinks.commentsUrl, {
       data: commentData,
     });
@@ -46,7 +46,6 @@ test.describe('Verify comments CRUD operations @crud @GAD-R09-02', () => {
     // Act
     const commentData = prepareCommentPayload(articleId);
 
-    // Arrange
     const response = await request.post(apiLinks.commentsUrl, {
       headers,
       data: commentData,
