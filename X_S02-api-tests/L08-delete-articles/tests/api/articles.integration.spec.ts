@@ -58,7 +58,7 @@ test.describe('Verify articles CRUD operations @crud', () => {
       expect.soft(articleJson.body).toEqual(articleData.body);
     });
 
-    test('should delete an article with logged-in user GAD-R08-05', async ({
+    test('should delete an article with logged-in user @GAD-R08-05', async ({
       request,
     }) => {
       // Arrange
@@ -92,7 +92,7 @@ test.describe('Verify articles CRUD operations @crud', () => {
       ).toBe(expectedDeletedArticleStatusCode);
     });
 
-    test('should not delete an article with non logged-in user GAD-R08-05', async ({
+    test('should not delete an article with non logged-in user @GAD-R08-05', async ({
       request,
     }) => {
       // Arrange
