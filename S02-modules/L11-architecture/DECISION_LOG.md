@@ -71,13 +71,11 @@ We need static code analysis tools for:
 **Pros**:
 
 - **Page Object Model (POM)**:
-
   - Enhanced test organization - POM allows us to structure UI test code by creating separate classes for each web page, resulting in a more organized and readable test suite.
   - Improved test maintenance - Changes to the UI can be localized within the page class, reducing the impact on test code and speeding up maintenance efforts.
   - Reusability - POM promotes reusing page methods across different tests, leading to a more efficient test development process.
 
 - **Arrange-Act-Assert (AAA)**:
-
   - Clear test structure - AAA separates test code into three distinct sections, making it easier to understand the test's setup, action, and verification steps.
   - Better error localization - With AAA, it is simpler to pinpoint the cause of test failures, aiding in quicker issue resolution.
   - Facilitates testing best practices - AAA aligns with the principles of testing, encouraging developers to write more reliable and robust tests.
@@ -89,12 +87,10 @@ We need static code analysis tools for:
 **Cons**:
 
 - **Page Object Model (POM)**:
-
   - Initial setup overhead - Implementing POM may require additional effort in creating page classes and refactoring existing test code.
   - Potential overhead for small projects - In smaller projects with limited UI testing, POM may introduce unnecessary complexity.
 
 - **Arrange-Act-Assert (AAA)**:
-
   - Learning curve - Developers unfamiliar with AAA might require some time to adapt to the new testing pattern.
 
 - **Composition**:

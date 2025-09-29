@@ -1,8 +1,18 @@
 // Example of own fixtures with function initialized eagerly and lazily
 // Use debugging to see the difference between eager and lazy initialization
 import { test } from '@playwright/test';
+interface Human {
+  name: string;
+  time: number;
+}
 
-const myTest = test.extend({
+interface MyFixtures {
+  eager: Human;
+  lazy: () => Human;
+  lazyArrow: () => Human;
+}
+
+const myTest = test.extend<MyFixtures>({
   eager: async ({}, use) => {
     console.log('🌱 f1.1 eager function initialized');
     const human = { name: '🌱 Ewa', time: Date.now() };

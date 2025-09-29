@@ -3,7 +3,7 @@
 
 import { test } from '@playwright/test';
 
-const myTest = test.extend({
+const myTest = test.extend<{ name: string }>({
   name: async ({}, use, testInfo) => {
     console.log('🌱 f1 name fixture initialized');
 

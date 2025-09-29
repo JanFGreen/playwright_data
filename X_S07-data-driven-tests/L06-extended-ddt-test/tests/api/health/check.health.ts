@@ -3,7 +3,7 @@ import { expect, test as health } from '@_src/merge.fixture';
 
 health('verify if application is in correct state', async ({ request }) => {
   // Arrange
-  const expectedStatus = 'Ok';
+  const expectedStatus = 'OK';
   const healthRequest = new HealthRequest(request);
 
   // Act
