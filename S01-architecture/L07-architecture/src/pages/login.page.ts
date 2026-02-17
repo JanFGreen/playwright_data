@@ -1,3 +1,4 @@
+import { LoginUser } from '../models/loginUser.models';
 import { BasePage } from './base.page';
 import { Locator, Page } from '@playwright/test';
 
@@ -16,9 +17,15 @@ export class LoginPage extends BasePage {
     this.loginButton = page.getByRole('button', { name: 'LogIn' });
   }
 
-  async login(email: string, password: string): Promise<void> {
-    await this.loginFiled.fill(email);
-    await this.passwordField.fill(password);
+  //   async login(email: string, password: string): Promise<void> {
+  //     await this.loginFiled.fill(email);
+  //     await this.passwordField.fill(password);
+  //     await this.loginButton.click();
+  //   }
+
+  async login(userLoginData: LoginUser): Promise<void> {
+    await this.loginFiled.fill(userLoginData.email);
+    await this.passwordField.fill(userLoginData.password);
     await this.loginButton.click();
   }
 }

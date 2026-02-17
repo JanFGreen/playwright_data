@@ -12,8 +12,8 @@ export default defineConfig({
   workers: undefined,
   reporter: 'html',
   use: {
-    // baseURL: 'http://localhost:3000',
-    baseURL: process.env.BASE_URL,
+    baseURL: 'http://localhost:3000',
+    //baseURL: process.env.BASE_URL,
     actionTimeout: 0,
     trace: 'on',
     video: 'retain-on-failure',
