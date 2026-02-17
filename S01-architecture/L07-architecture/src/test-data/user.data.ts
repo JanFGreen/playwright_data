@@ -1,4 +1,4 @@
-import { LoginUser } from '../models/loginUser.models';
+import { LoginUser } from '../models/user.model';
 
 export const loginuser1: LoginUser = {
   email: 'Moses.Armstrong@Feest.ca',

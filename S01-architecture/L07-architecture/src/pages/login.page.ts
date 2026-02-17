@@ -1,4 +1,4 @@
-import { LoginUser } from '../models/loginUser.models';
+import { LoginUser } from '../models/user.model';
 import { BasePage } from './base.page';
 import { Locator, Page } from '@playwright/test';
 

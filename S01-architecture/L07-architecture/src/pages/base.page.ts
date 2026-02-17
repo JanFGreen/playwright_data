@@ -8,7 +8,12 @@ export class BasePage {
     await this.page.goto(this.url);
   }
 
-  async getTitle(): Promise<string> {
+  async title(): Promise<string> {
+    await this.page.waitForLoadState();
     return this.page.title();
+  }
+
+  async waitForPageToLoadUrl(): Promise<void> {
+    await this.page.waitForURL(this.url);
   }
 }
