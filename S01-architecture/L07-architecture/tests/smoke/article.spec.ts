@@ -1,4 +1,5 @@
 import { randomArticleData } from '../../src/factories/article.factory';
+import { AddArticle } from '../../src/models/article.model';
 import { ArticlePage } from '../../src/pages/article.page';
 import { ArticlesPage } from '../../src/pages/articles.page';
 import { LoginPage } from '../../src/pages/login.page';
@@ -6,72 +7,59 @@ import { loginuser1 } from '../../src/test-data/user.data';
 import { AddArticleView } from '../../src/view/add-article.view';
 import { expect, test } from '@playwright/test';
 
-test('Create article with correct data', async ({ page }) => {
-  //Arange
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await loginPage.login(loginuser1);
+test.describe('Verify article creation', () => {
+  let loginPage: LoginPage;
+  let articlePage: ArticlesPage;
+  let addArticleView: AddArticleView;
+  let randomArticle: AddArticle;
 
-  const articlePage = new ArticlesPage(page);
-  await articlePage.goto();
+  test.beforeEach(async ({ page }) => {
+    loginPage = new LoginPage(page);
+    articlePage = new ArticlesPage(page);
+    addArticleView = new AddArticleView(page);
 
-  //Act
-  await articlePage.addArticleButtonLogged.click();
+    await loginPage.goto();
+    await loginPage.login(loginuser1);
+    await articlePage.goto();
+    await articlePage.addArticleButtonLogged.click();
 
-  const addArticleView = new AddArticleView(page);
-  await expect.soft(addArticleView.profileMessage).toBeVisible();
+    randomArticle = randomArticleData();
+  });
 
-  //const newArticleTitle = 'test title';
-  const randomArticle = randomArticleData();
+  test('Create article with correct data', async ({ page }) => {
+    //Arange
+    const article = new ArticlePage(page);
 
-  await addArticleView.createArticle(randomArticle);
+    //Act
+    await expect.soft(addArticleView.profileMessage).toBeVisible();
 
-  const article = new ArticlePage(page);
-  await expect(article.articleTitle).toHaveText(randomArticle.title);
-});
+    //const newArticleTitle = 'test title';
+    await addArticleView.createArticle(randomArticle);
 
-test('Create article with empty title', async ({ page }) => {
-  //Arange
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await loginPage.login(loginuser1);
+    await expect(article.articleTitle).toHaveText(randomArticle.title);
+  });
 
-  const articlePage = new ArticlesPage(page);
-  await articlePage.goto();
+  test('Create article with empty title', async () => {
+    //Arange
+    randomArticle.title = '';
 
-  //Act
-  await articlePage.addArticleButtonLogged.click();
+    await expect.soft(addArticleView.profileMessage).toBeVisible();
 
-  const addArticleView = new AddArticleView(page);
-  await expect.soft(addArticleView.profileMessage).toBeVisible();
+    await addArticleView.createArticle(randomArticle);
+    await expect(addArticleView.errorPopup).toHaveText(
+      'Article was not created',
+    );
+  });
 
-  //const newArticleTitle = 'test title';
-  const randomArticle = randomArticleData();
-  randomArticle.title = '';
+  test('Create article with empty body', async () => {
+    //Arange
+    randomArticle.body = '';
 
-  await addArticleView.createArticle(randomArticle);
-  await expect(addArticleView.errorPopup).toHaveText('Article was not created');
-});
+    await expect.soft(addArticleView.profileMessage).toBeVisible();
 
-test('Create article with empty body', async ({ page }) => {
-  //Arange
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await loginPage.login(loginuser1);
-
-  const articlePage = new ArticlesPage(page);
-  await articlePage.goto();
-
-  //Act
-  await articlePage.addArticleButtonLogged.click();
-
-  const addArticleView = new AddArticleView(page);
-  await expect.soft(addArticleView.profileMessage).toBeVisible();
-
-  //const newArticleTitle = 'test title';
-  const randomArticle = randomArticleData();
-  randomArticle.body = '';
-
-  await addArticleView.createArticle(randomArticle);
-  await expect(addArticleView.errorPopup).toHaveText('Article was not created');
+    await addArticleView.createArticle(randomArticle);
+    await expect(addArticleView.errorPopup).toHaveText(
+      'Article was not created',
+    );
+  });
 });
