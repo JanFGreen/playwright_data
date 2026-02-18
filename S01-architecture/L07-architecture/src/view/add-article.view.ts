@@ -7,12 +7,14 @@ export class AddArticleView {
   saveArticle: Locator;
 
   profileMessage: Locator;
+  errorPopup: Locator;
 
   constructor(private page: Page) {
     this.articleTitle = page.getByTestId('title-input');
     this.articleBody = page.getByTestId('body-text');
     this.saveArticle = page.getByTestId('save');
     this.profileMessage = page.getByRole('heading', { name: 'Add New Entry' });
+    this.errorPopup = page.getByTestId('alert-popup');
   }
 
   async createArticle(article: AddArticle): Promise<void> {

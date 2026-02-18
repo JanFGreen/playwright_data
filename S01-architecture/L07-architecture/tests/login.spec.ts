@@ -20,7 +20,7 @@ test('Login with correct credentials @GAD_R02_01', async ({ page }) => {
   await loginPage.login(loginuser1);
 
   const welcomePage = new WelcomePage(page);
-  const title = await welcomePage.getTitle();
+  const title = await welcomePage.title();
 
   //Assert
   expect(title).toContain(`Welcome`);
