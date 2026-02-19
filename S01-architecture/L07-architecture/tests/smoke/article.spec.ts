@@ -1,4 +1,7 @@
-import { randomArticleData } from '../../src/factories/article.factory';
+import {
+  randomArticleData,
+  randomArticleDataWithParams,
+} from '../../src/factories/article.factory';
 import { AddArticle } from '../../src/models/article.model';
 import { ArticlePage } from '../../src/pages/article.page';
 import { ArticlesPage } from '../../src/pages/articles.page';
@@ -54,6 +57,18 @@ test.describe('Verify article creation', () => {
   test('Create article with empty body', async () => {
     //Arange
     randomArticle.body = '';
+
+    await expect.soft(addArticleView.profileMessage).toBeVisible();
+
+    await addArticleView.createArticle(randomArticle);
+    await expect(addArticleView.errorPopup).toHaveText(
+      'Article was not created',
+    );
+  });
+
+  test('Reject create article with exited title with 129 characters', async () => {
+    //Arange
+    randomArticle = randomArticleDataWithParams(129, 5);
 
     await expect.soft(addArticleView.profileMessage).toBeVisible();
 
